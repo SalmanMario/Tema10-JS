@@ -26,7 +26,8 @@ const products = [
 ];
 
 // exercitiul 1
-console.log(products[2].name);
+const theGuardian = products.find(products => products.name === "The Guardian");
+console.log(theGuardian);
 
 // exercitiul 2
 
@@ -82,9 +83,7 @@ const students = [
     { name: 'David', scores: [100, 100, 100] },
 ];
 
-const rezultat = [];
-
-students.map((student) => {
+const studentsAverage = students.map((student) => {
     let medieStudent;
     let sumaScorStudent = student.scores.reduce((sumaTotala, nrCurent) => {
         return sumaTotala + nrCurent;
@@ -97,10 +96,10 @@ students.map((student) => {
         average: medieStudent
     };
 
-    rezultat.push(obiectStudent);
+    return obiectStudent;
 });
 
-const notaMareFiltru = rezultat.filter(function (num) {
+const notaMareFiltru = studentsAverage.filter(function (num) {
     return num.average > 90;
 });
 
@@ -140,9 +139,9 @@ function numberToString(n) {
     return n.toString();
 }
 
-console.log("Aici avem rezultatul mediilor adunate si impartite", rezultat);
+console.log("Aici avem rezultatul mediilor adunate si impartite", studentsAverage);
 console.log("Aici avem rezultatul dupa filtrare:", notaMareFiltru);
-console.log("Aici avem rezultat folosind Filter", myFilter(rezultat, n => n.average > 90));
-console.log("Aici avem rezultat folosind Map", myMap(rezultat, n => n.average > 90));
+console.log("Aici avem rezultat folosind Filter", myFilter(studentsAverage, n => n.average > 90));
+console.log("Aici avem rezultat folosind Map", myMap(studentsAverage, n => n.average > 90));
 
 
